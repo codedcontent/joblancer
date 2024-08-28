@@ -70,6 +70,18 @@ const LoginForm = () => {
 
     if (!errors.email && !errors.password) {
       setLoading(true);
+
+      // Login the user
+      try {
+        const resp = await axiosInstance.post("/auth/login", formData);
+
+        notify(resp.data.msg, "success");
+        router.push("/");
+      } catch (error: any) {
+        notify(error.response.data.error, "error");
+      } finally {
+        setLoading(false);
+      }
     }
   };
 

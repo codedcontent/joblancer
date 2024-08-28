@@ -103,8 +103,8 @@ const SignupForm = () => {
 
       // Sign up the user
       try {
-        const res = await axiosInstance.post("/auth/signup", formData);
-        notify(res.data.msg, "success");
+        const resp = await axiosInstance.post("/auth/signup", formData);
+        notify(resp.data.msg, "success");
         router.push("/");
       } catch (error: any) {
         notify(error.response.data.error, "error");
