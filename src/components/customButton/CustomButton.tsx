@@ -9,7 +9,7 @@ type Props = {
 const CustomButton = ({ loading, handleClick, title, ...rest }: Props) => {
   return (
     <button
-      className="w-full py-2.5 rounded-lg text-center bg-primary text-white"
+      className="w-full py-2.5 px-5 rounded-lg text-center bg-primary text-white"
       onClick={handleClick}
       {...rest}
     >
