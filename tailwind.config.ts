@@ -21,6 +21,7 @@ const config: Config = {
         success: "#50C878",
         danger: "#DC143C",
         info: "#87CEEB",
+        bg: "#ECF5FF",
       },
     },
   },
