@@ -3,7 +3,7 @@ import IntroContent from "./IntroContent";
 
 const BuyerDashboardPage = () => {
   return (
-    <div>
+    <div className="px-32 m-auto">
       {/* Intro Content */}
       <IntroContent />
 
