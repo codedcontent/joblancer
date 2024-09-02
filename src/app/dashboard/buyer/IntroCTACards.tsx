@@ -18,10 +18,10 @@ const IntroCTACards = ({
 }: Props) => {
   return (
     <div
-      className={`px-12 py-8 rounded-md flex flex-col justify-center items-start gap-12 ${ctaColor}`}
+      className={`lg:px-12 px-5 lg:py-8 py-4 rounded-md flex flex-col justify-center items-start lg:gap-12 gap-3 ${ctaColor}`}
     >
       <div className="space-y-1">
-        <p className="font-black text-xl text-white">{title}</p>
+        <p className="font-black lg:text-xl text-lg text-white">{title}</p>
 
         {/* <p className="font-extralight">{description}</p> */}
       </div>

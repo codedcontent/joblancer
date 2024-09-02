@@ -5,10 +5,12 @@ import IntroCTACards from "./IntroCTACards";
 
 const IntroContent = () => {
   return (
-    <div className="p-8 w-full bg-white rounded-2xl flex justify-center items-center gap-10">
+    <div className="lg:p-8 p-3 w-full bg-white lg:rounded-2xl rounded-lg flex md:flex-row flex-col justify-center items-center lg:gap-10 gap-4">
       {/* Hi Intro */}
-      <div className="space-y-3 w-[35%]">
-        <h1 className="text-4xl font-black">Hi, {"{{username}}"}!</h1>
+      <div className="lg:space-y-3 space-y-1 lg:w-[35%] w-full">
+        <h1 className="lg:text-4xl text-xl font-black">
+          Hi, {"{{username}}"}!
+        </h1>
 
         <p className="font-light">
           We know you're here because something needs attention—whether it's a
@@ -16,20 +18,22 @@ const IntroContent = () => {
           Let's get that taken care of right now.
         </p>
 
-        <div className="w-1/2 pt-4">
+        <div className="w-1/2 lg:pt-4 pt-2">
           <CustomButton title="Fix my problem" loading={false} />
         </div>
       </div>
 
       {/* Other CTAs */}
-      <div className="w-[65%] grid grid-cols-3 gap-6">
-        <IntroCTACards
-          ctaTitle="Search"
-          ctaColor="bg-gradient-to-b from-[#0074FF] to-[#7DA7D8]"
-          ctaLink="/search"
-          title="Find a FIXER"
-          description="The SEARCH route opens up the AI prompter where they can describe their problem."
-        />
+      <div className="lg:w-[65%] w-full grid md:grid-cols-3 grid-cols-1 lg:gap-6 gap-2 lg:mt-0 mt-6">
+        <div className="md:flex hidden">
+          <IntroCTACards
+            ctaTitle="Search"
+            ctaColor="bg-gradient-to-b from-[#0074FF] to-[#7DA7D8]"
+            ctaLink="/search"
+            title="Find a FIXER"
+            description="The SEARCH route opens up the AI prompter where they can describe their problem."
+          />
+        </div>
         {/* TODO: The SEARCH route opens up the AI prompter where they can describe their problem. */}
 
         <IntroCTACards
