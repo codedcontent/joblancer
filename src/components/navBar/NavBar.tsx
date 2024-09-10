@@ -23,7 +23,7 @@ const Navbar = (props: Props) => {
   };
 
   return (
-    <nav className="lg:px-14 px-7 md:py-2.5 py-1.5 flex items-center justify-between sticky top-0 z-50 bg-dark/90">
+    <nav className="lg:px-14 px-7 md:py-2.5 py-1.5 flex items-center justify-between sticky top-0 z-40 bg-bg/90">
       {/* Logo */}
       <Link href={"/"}>
         <Image
@@ -38,14 +38,14 @@ const Navbar = (props: Props) => {
       {/* Nav - Large Screen */}
       <div className="flex lg:gap-x-5 gap-x-2 justify-center items-center">
         {/* Email Icon */}
-        <AiOutlineMail className="text-xl" />
+        <AiOutlineMail className="text-xl cursor-pointer" />
 
         {/* Notification */}
-        <MdOutlineNotifications className="text-2xl" />
+        <MdOutlineNotifications className="text-2xl cursor-pointer" />
 
         {/* Account */}
         <div
-          className="rounded-full lg:h-10 h-8 lg:w-10 w-8 relative"
+          className="rounded-full lg:h-10 h-8 lg:w-10 w-8 relative cursor-pointer"
           onClick={toggleMenu}
         >
           <Image

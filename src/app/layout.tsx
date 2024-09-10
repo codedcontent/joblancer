@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${openSans.className} h-screen w-screen`}>
+      <body
+        className={`${openSans.className} h-screen w-screen overflow-x-hidden`}
+      >
         <NotificationProvider>{children}</NotificationProvider>
       </body>
     </html>

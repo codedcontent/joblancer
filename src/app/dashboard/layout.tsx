@@ -6,7 +6,7 @@ type Props = {
 
 export default function DashboardLayout({ children }: Props) {
   return (
-    <main className="bg-bg min-h-screen w-screen overflow-hidden">
+    <main className="bg-bg min-h-screen w-screen relative">
       {/* Dashboard Nav */}
       <Navbar />
 

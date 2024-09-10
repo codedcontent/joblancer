@@ -1,9 +1,15 @@
+// "use client"
+
 /* eslint-disable react/no-unescaped-entities */
 import CustomButton from "@/components/customButton/CustomButton";
 import React from "react";
 import IntroCTACards from "./IntroCTACards";
 
-const IntroContent = () => {
+type Props = {
+  setIsOpenIssueDescriber: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const IntroContent = ({ setIsOpenIssueDescriber }: Props) => {
   return (
     <div className="lg:p-8 p-3 w-full bg-white lg:rounded-2xl rounded-lg flex md:flex-row flex-col justify-center items-center lg:gap-10 gap-4">
       {/* Hi Intro */}
@@ -19,7 +25,11 @@ const IntroContent = () => {
         </p>
 
         <div className="w-1/2 lg:pt-4 pt-2">
-          <CustomButton title="Fix my problem" loading={false} />
+          <CustomButton
+            title="Fix my problem"
+            loading={false}
+            onClick={() => setIsOpenIssueDescriber(true)}
+          />
         </div>
       </div>
 
