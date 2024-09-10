@@ -11,7 +11,9 @@ const BuyerDashboardPage = () => {
   return (
     <div className="lg:px-32 md:px-20 px-6 m-auto lg:pt-10 pt-4 w-full pb-10">
       {/* Issue Describer */}
-      {isOpenIssueDescriber && <IssueDescriber />}
+      {isOpenIssueDescriber && (
+        <IssueDescriber setIsOpenIssueDescriber={setIsOpenIssueDescriber} />
+      )}
 
       {/* Intro Content */}
       <IntroContent setIsOpenIssueDescriber={setIsOpenIssueDescriber} />
