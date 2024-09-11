@@ -1,7 +1,8 @@
 import CustomButton from "@/components/customButton/CustomButton";
 import React, { useEffect, useRef, useState } from "react";
 import { IssueDescriberDialogTypes } from "./IssueDescriber";
-import Image from "next/image";
+import UploadPreview from "./UploadPreview";
+import { removeItemAtIndex } from "@/utils/removeItemAtIndex";
 
 type Props = {
   setCurrentDialog: React.Dispatch<
@@ -12,20 +13,35 @@ type Props = {
 const ImageUploadDialog = ({ setCurrentDialog }: Props) => {
   const uploaderInputFileEle = useRef<HTMLInputElement | null>(null);
   const [previews, setPreviews] = useState<string[]>([]);
+  const [issueImages, setIssueImages] = useState<File[] | null>(null);
 
   const handleUploaderClick = () => {
     uploaderInputFileEle.current?.click();
   };
 
+  // Handle the user selecting image
   const handleUploaderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.currentTarget.files;
 
     if (!files) return;
 
     const fileArray = Array.from(files); // Convert FileList to array
-    const imageUrls = fileArray.map((file) => URL.createObjectURL(file)); // Generate preview URLs for each image
+
+    const imageUrls = fileArray
+      .slice(0, 4)
+      .map((file) => URL.createObjectURL(file)); // Generate preview URLs for each image
 
     setPreviews(imageUrls);
+    setIssueImages(fileArray);
+  };
+
+  //   Handle user removing a preview
+  const handleFileRemoval = (filedIndex: number) => {
+    // Remove file from preview
+    setPreviews(removeItemAtIndex(filedIndex, previews));
+
+    // Remove file from IssueImages
+    setIssueImages(removeItemAtIndex(filedIndex, issueImages as File[]));
   };
 
   // Cleanup to revoke object URLs
@@ -38,10 +54,12 @@ const ImageUploadDialog = ({ setCurrentDialog }: Props) => {
   return (
     <div className="w-full h-full">
       {/* Title text */}
-      <p className="text-2xl font-black mb-4">A picture tells us more</p>
+      <p className="md:text-2xl text-lg font-black md:mb-4 mb-0">
+        A picture tells us more
+      </p>
 
       {/* Intro text */}
-      <p className="font-extralight">
+      <p className="font-extralight md:text-base text-sm">
         Ok {"{{username}}"}. Can you upload a picture or video? This will tell
         the expert more about the issue.
       </p>
@@ -61,19 +79,10 @@ const ImageUploadDialog = ({ setCurrentDialog }: Props) => {
         />
 
         {/* Image Preview */}
-        <div className="grid grid-cols-4 gap-4 mb-4">
-          {previews.map((src, index) => (
-            <div key={index} className="relative">
-              <Image
-                src={src}
-                alt={`Preview ${index}`}
-                className="w-full h-auto object-cover rounded-md"
-                width={500}
-                height={500}
-              />
-            </div>
-          ))}
-        </div>
+        <UploadPreview
+          previews={previews}
+          handleFileRemoval={handleFileRemoval}
+        />
 
         {/* Button */}
         <div

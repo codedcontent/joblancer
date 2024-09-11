@@ -1,10 +1,11 @@
 "use client";
 
-import { allowScroll, preventScroll } from "@/utils/preventScroll";
 import React, { useEffect, useState } from "react";
 import DescriptionDialog from "./DescriptionDialog";
 import { IoClose } from "react-icons/io5";
 import ImageUploadDialog from "./ImageUploadDialog";
+import { allowScroll, preventScroll } from "@/utils/preventScroll";
+import FinishedDialog from "./FinishedDialog";
 
 type Props = {
   setIsOpenIssueDescriber: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,7 +31,7 @@ const IssueDescriber = ({ setIsOpenIssueDescriber }: Props) => {
   return (
     <div className="fixed top-0 left-0 h-screen w-screen overflow-hidden bg-black/50 flex justify-center items-center z-50">
       {/* Main content */}
-      <div className="min-w-96 max-w-[40%] bg-white min-h-64 rounded-lg flex justify-center items-center p-6 relative">
+      <div className="md:min-w-96 md:max-w-[40%] max-w-[80%] bg-white min-h-64 rounded-lg flex justify-center items-center p-6 relative">
         {/* close button */}
         <div
           className="p-1 rounded-full bg-danger text-white cursor-pointer absolute -top-[8%] -right-[5%]"
@@ -50,6 +51,7 @@ const IssueDescriber = ({ setIsOpenIssueDescriber }: Props) => {
         )}
 
         {/* Finished/Thanks dialog */}
+        {currentDialog === "finished" && <FinishedDialog />}
       </div>
     </div>
   );
