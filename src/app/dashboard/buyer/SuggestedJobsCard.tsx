@@ -1,6 +1,4 @@
-import CustomButton from "@/components/customButton/CustomButton";
 import LinkButton from "@/components/linkButton/LinkButton";
-import React from "react";
 
 type Props = {
   title: string;
