@@ -7,6 +7,8 @@ type Props = {
   jobLink: string;
   matchConfidence: number;
   categoryIcon: string;
+  handleExpertSelection: (expertId: number) => void;
+  index: number;
 };
 
 const BestExpertCard = ({
@@ -15,6 +17,8 @@ const BestExpertCard = ({
   jobLink,
   title,
   categoryIcon,
+  handleExpertSelection,
+  index,
 }: Props) => {
   return (
     <div className="w-full bg-white lg:p-6 p-4 rounded-xl space-y-4">
@@ -33,14 +37,15 @@ const BestExpertCard = ({
       {/* Bottom Comp. */}
       <div className="flex justify-between items-center">
         <div className="w-max">
-          <Link
-            href={jobLink}
-            className="w-full py-2.5 px-5 rounded-lg text-center bg-primary text-white flex items-center gap-4"
+          <div
+            // href={jobLink}
+            className="w-full py-2.5 px-5 rounded-lg text-center bg-primary text-white flex items-center gap-4 cursor-pointer"
+            onClick={() => handleExpertSelection(index)}
           >
             <span>Hire this experts</span>
 
             <FaAngleRight />
-          </Link>
+          </div>
         </div>
 
         <div className="bg-success rounded-full h-10 w-10 flex justify-center items-center">

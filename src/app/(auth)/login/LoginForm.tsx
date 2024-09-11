@@ -4,7 +4,7 @@ import CustomButton from "@/components/customButton/CustomButton";
 import TextField from "@/components/textField/TextField";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useNotification } from "@/app/contexts/NotificationProvider";
+import { useNotification } from "@/contexts/NotificationProvider";
 import axiosInstance from "@/lib/axiosInstance";
 
 type FormData = {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useNotification } from "@/app/contexts/NotificationProvider";
+import { useNotification } from "@/contexts/NotificationProvider";
 import CustomButton from "@/components/customButton/CustomButton";
 import TextField from "@/components/textField/TextField";
 import { useState } from "react";
